@@ -3,17 +3,10 @@ david:
   name: David
   salary: 80000
 
-jamis:
+dave:
   id: 2
-  name: Jamis
+  name: Dave
   salary: 150000
-
-<% for digit in 3..10 %>
-dev_<%= digit %>:
-  id: <%= digit %>
-  name: fixture_<%= digit %>
-  salary: 100000
-<% end %>
 
 poor_jamis:
   id: 11
@@ -23,8 +16,10 @@ poor_jamis:
 admin:
   id: 12
   name: admin
+  salary: 10000
 
 goofy:
   id: 13
   name: Goofy
+  salary: 11000
 

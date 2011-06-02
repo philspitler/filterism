@@ -8,11 +8,7 @@ Gem::Specification.new do |gem|
   gem.email       = 'pspitler@gmail.com'
   gem.homepage    = 'https://github.com/philspitler/filterism'
   gem.summary     = 'A DSL for filtering active record results based on hash keys with the term _is_ in them.'
-<<<<<<< HEAD
-  gem.description = %q{TODO: Write a gem description}
-=======
   gem.description = ''
->>>>>>> 8f758bb... added home page and cleared out description
 
   gem.files         = `git ls-files`.split("\n")
   gem.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")

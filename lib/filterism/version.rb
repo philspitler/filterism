@@ -1,3 +1,3 @@
-module GemTemplate
+module Filterism
   VERSION = "0.0.1"
 end

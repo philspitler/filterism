@@ -1,13 +1,13 @@
 # -*- encoding: utf-8 -*-
-require File.expand_path('../lib/gem_template/version', __FILE__)
+require File.expand_path('../lib/filterism/version', __FILE__)
 
 Gem::Specification.new do |gem|
-  gem.name        = 'gem_template'
-  gem.version     = GemTemplate::VERSION
-  gem.author      = "Code for America"
-  gem.email       = 'info@codeforamerica.org'
+  gem.name        = 'filterism'
+  gem.version     = Filterism::VERSION
+  gem.author      = "Phil Spitler"
+  gem.email       = 'pspitler@gmail.com'
   gem.homepage    = ''
-  gem.summary     = %q{TODO: Write a gem summary}
+  gem.summary     = 'A DSL for filtering active record results based on hash keys with the term _is_ in them.'
   gem.description = %q{TODO: Write a gem description}
 
   gem.files         = `git ls-files`.split("\n")
@@ -15,7 +15,6 @@ Gem::Specification.new do |gem|
   gem.executables   = `git ls-files -- bin/*`.split("\n").map{|f| File.basename(f)}
   gem.require_paths = ['lib']
 
-  gem.add_development_dependency 'ZenTest', '~> 4.5'
   gem.add_development_dependency 'maruku', '~> 0.6'
   gem.add_development_dependency 'rake', '~> 0.9'
   gem.add_development_dependency 'rspec', '~> 2.6'

@@ -1,3 +1,3 @@
-module GemTemplate
+module Filterism
   # Your code goes here...
 end

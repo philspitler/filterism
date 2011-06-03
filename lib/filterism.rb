@@ -48,12 +48,7 @@ module Filterism
         elsif comparator == 'IN'
           values << value.split(',')
         else
-          if value.index(/true|false/)
-            values << true if value == "true"
-            values << false if value == "false"
-          else
-            values << value
-          end
+          values << convert_if_string_is_boolean(value)
         end
       end
 
@@ -61,6 +56,13 @@ module Filterism
 
     where(where_clause, *values)
 
+  end
+  private
+  def convert_if_string_is_boolean(value)
+    if value == "true" || value == "false"
+      value = "true" ? true : false
+    end
+    return value
   end
 
 end

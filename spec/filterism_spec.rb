@@ -69,6 +69,10 @@ describe Filterism do
     User.filter({'name_is_in' => 'Dave,Jamis'}).all.count.should == 2
   end
 
+  it "fitlers on multiple expressions" do
+    User.filter({'name_is_in' => 'Dave,Jamis,David', 'salary_is_gt' => '10000'}).all.count.should == 2
+  end
+
   it "doesn't filter if passed invalid expression" do
     User.filter({'name_is_garbage' => 'David'}).all.count.should == User.all.count
   end

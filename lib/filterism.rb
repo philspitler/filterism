@@ -39,17 +39,18 @@ module Filterism
 
         where_clause << " AND" unless where_clause.empty?
 
-        mark = comparator == 'IN' ? '(?)' : '?'
-
-        where_clause << " #{column} #{comparator} #{mark}"
+        where_mark = '?'
 
         if comparator == 'LIKE'
           values << "%#{value}%"
         elsif comparator == 'IN'
+          where_mark = '(?)'
           values << value.split(',')
         else
           values << convert_if_string_is_boolean(value)
         end
+        
+        where_clause << " #{column} #{comparator} #{where_mark}"
       end
 
     end

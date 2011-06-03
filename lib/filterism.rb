@@ -17,7 +17,9 @@ module Filterism
     'less_than_or_equal_to' => '<=',
     'ltet' => '<=',
 
-    'like' => 'LIKE'
+    'like' => 'LIKE',
+
+    'in' => 'IN'
   }
   
   def filter(params)
@@ -36,9 +38,15 @@ module Filterism
         comparator = COMPARATORS[keysplit[1]]
 
         where_clause << " AND" unless where_clause.empty?
-        where_clause << " #{column} #{comparator} ?"
+        if comparator == 'IN'
+          where_clause << " #{column} #{comparator} (?)"
+        else
+          where_clause << " #{column} #{comparator} ?"
+        end
         if comparator == 'LIKE'
           values << "%#{value}%"
+        elsif comparator == 'IN'
+          values << value.split(',')
         else
           if value.index(/true|false/)
             values << true if value == "true"

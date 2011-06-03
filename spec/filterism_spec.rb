@@ -64,6 +64,11 @@ describe Filterism do
     User.filter({'name_is_like' => 'Dav'}).all.count.should == 2
   end
 
+  it "filters on in" do
+    User.filter({'id_is_in' => '1,2,3'}).all.count.should == 3
+    User.filter({'name_is_in' => 'Dave,Jamis'}).all.count.should == 2
+  end
+
   it "doesn't filter if passed invalid expression" do
     User.filter({'name_is_garbage' => 'David'}).all.count.should == User.all.count
   end

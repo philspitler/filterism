@@ -30,19 +30,22 @@ module Filterism
 
     params.each do |key, value|
       keysplit = key.to_s.split('_is_')
-      column = keysplit[0]
-      comparator = COMPARATORS[keysplit[1]]
 
-      where_clause << " AND" unless where_clause.empty?
-      where_clause << " #{column} #{comparator} ?"
-      if comparator == 'LIKE'
-        values << "%#{value}%"
-      else
-        if value.index(/true|false/)
-          values << true if value == "true"
-          values << false if value == "false"
+      if COMPARATORS.keys.include?(keysplit[1])
+        column = keysplit[0]
+        comparator = COMPARATORS[keysplit[1]]
+
+        where_clause << " AND" unless where_clause.empty?
+        where_clause << " #{column} #{comparator} ?"
+        if comparator == 'LIKE'
+          values << "%#{value}%"
         else
-          values << value
+          if value.index(/true|false/)
+            values << true if value == "true"
+            values << false if value == "false"
+          else
+            values << value
+          end
         end
       end
 

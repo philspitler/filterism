@@ -64,4 +64,8 @@ describe Filterism do
     User.filter({'name_is_like' => 'Dav'}).all.count.should == 2
   end
 
+  it "doesn't filter if passed invalid expression" do
+    User.filter({'name_is_garbage' => 'David'}).all.count.should == User.all.count
+  end
+
 end

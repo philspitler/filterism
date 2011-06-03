@@ -38,11 +38,11 @@ module Filterism
         comparator = COMPARATORS[keysplit[1]]
 
         where_clause << " AND" unless where_clause.empty?
-        if comparator == 'IN'
-          where_clause << " #{column} #{comparator} (?)"
-        else
-          where_clause << " #{column} #{comparator} ?"
-        end
+
+        mark = comparator == 'IN' ? '(?)' : '?'
+
+        where_clause << " #{column} #{comparator} #{mark}"
+
         if comparator == 'LIKE'
           values << "%#{value}%"
         elsif comparator == 'IN'

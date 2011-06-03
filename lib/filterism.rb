@@ -37,8 +37,6 @@ module Filterism
         column = keysplit[0]
         comparator = COMPARATORS[keysplit[1]]
 
-        where_clause << " AND" unless where_clause.empty?
-
         where_mark = '?'
 
         if comparator == 'LIKE'
@@ -49,7 +47,9 @@ module Filterism
         else
           values << convert_if_string_is_boolean(value)
         end
-        
+
+        where_clause << " AND" unless where_clause.empty?
+
         where_clause << " #{column} #{comparator} #{where_mark}"
       end
 

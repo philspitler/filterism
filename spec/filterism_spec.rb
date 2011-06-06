@@ -5,6 +5,7 @@ ActiverecordTestConnector.setup
 describe Filterism do
   extend ActiverecordTestConnector::FixtureSetup
   fixtures :users
+  fixtures :posts
 
   it "defines the COMPARATORS constant" do
     Filterism::COMPARATORS.should be
@@ -80,6 +81,11 @@ describe Filterism do
 
   it "doesn't filter if passed invalid expression" do
     User.filter({'name_is_garbage' => 'David'}).all.count.should == User.all.count
+  end
+
+  it "uses filterable fields" do
+    Post.filter({'title_is_equal_to' => 'Post 1 title'}).all.count.should == 1
+    Post.filter({'body_is_equal_to' => 'Post 1 body'}).all.count.should == 3
   end
 
 end

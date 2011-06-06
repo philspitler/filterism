@@ -6,4 +6,12 @@ ActiveRecord::Schema.define do
     t.column "created_at", :datetime
     t.column "updated_at", :datetime
   end
+  
+  create_table "posts", :force => true do |t|
+    t.column "title", :string
+    t.column "body", :text
+    t.column "published_at", :datetime
+    t.column "created_at", :datetime
+    t.column "updated_at", :datetime
+  end
 end

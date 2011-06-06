@@ -1,0 +1,16 @@
+post1:
+  id: 1
+  title: "Post 1 title"
+  body: "Post 1 body"
+
+post2:
+  id: 2
+  title: "Post 2 title"
+  body: "Post 2 body"
+
+post3:
+  id: 3
+  title: "Post 3 title"
+  body: "Post 3 body"
+
+

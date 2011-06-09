@@ -27,7 +27,7 @@ In the first argument, name is the [field] and [in] is the comparator.
 
 In the second argument, salary is the [field] and [greater_than] is the comparator.
 
-## Model
+### Model
 In the model you can limit which fields are filterable.  This is optional.  If this isn't in your model, all fields are filterable.
 
 ``` ruby

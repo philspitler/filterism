@@ -24,7 +24,7 @@ the records may be filtered.
 So as you see above, the syntax is [field]_is_[comparator]=value
 
 ### Controller
-This gem adds the ".filter" class method to any active record class.  You can pass in any hash, it doesn't have to operate from params.  It will only look at keys that have the "_is_" syntax.
+This gem adds the ".filter" class method to any active record class.  You can pass in any hash, it doesn't have to operate from params.  It will only look at keys that have the "\_is\_" syntax.
 
 ``` ruby
 users = User.filter(params).all

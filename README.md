@@ -21,7 +21,7 @@ the records may be filtered.
 ### URL
     http://whatever.com/whatever/?name_is_in=Dave,Jamis,David&salary_is_greater_than=10000
 
-So as you see above, the syntax is [field]_is_[comparator]=value.
+So as you see above, the syntax is [field]\_is\_[comparator]=value.
 
 In the first argument, name is the [field] and [in] is the comparator.
 

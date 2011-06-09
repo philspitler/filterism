@@ -21,7 +21,20 @@ the records may be filtered.
 ### URL
     http://whatever.com/whatever/?name_is_in=Dave,Jamis,David&salary_is_greater_than=10000
 
-So as you see above, the syntax is [field]_is_[comparator]=value
+So as you see above, the syntax is [field]_is_[comparator]=value.
+
+In the first argument, name is the [field] and [in] is the comparator.
+
+In the second argument, salary is the [field] and [greater_than] is the comparator.
+
+## Model
+In the model you can limit which fields are filterable.  This is optional.  If this isn't in your model, all fields are filterable.
+
+``` ruby
+class User < ActiveRecord::Base
+  filterable_fields :name, :salary
+end
+```
 
 ### Controller
 This gem adds the ".filter" class method to any active record class.  You can pass in any hash, it doesn't have to operate from params.  It will only look at keys that have the "\_is\_" syntax.

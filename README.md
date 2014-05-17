@@ -69,7 +69,9 @@ The examples above are equivalent.  If you have a long list of fields, you can u
 This gem adds the ".filter" class method to any active record class.  You can pass in any hash, it doesn't have to operate from params.  It will only look at keys that have the "\_is\_" syntax.
 
 ``` ruby
-users = User.filter(params).all
+parser = Filterism::ParamsParser.new
+parsed_params = parser.parse(params)
+users = User.filter(parsed_params).all
 ```
 
 ## Comparators

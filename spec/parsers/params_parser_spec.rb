@@ -1,15 +1,15 @@
 require 'spec_helper'
 
-describe Filterism::ConditionParser do
+describe Filterism::ParamsParser do
   before(:all) do
-    @condition_parser = Filterism::ConditionParser.new
+    @params_parser = Filterism::ParamsParser.new
   end
 
   describe "#parse" do
     it "has the parse method" do
-      expect(@condition_parser).to respond_to(:parse)
+      expect(@params_parser).to respond_to(:parse)
     end
-    subject { -> (params) { return @condition_parser.parse(params) }}
+    subject { -> (params) { return @params_parser.parse(params) }}
 
     it "returns a hash" do
       expect(subject.call({ name_is_equal_to: 'David' })).to be_an(Array)
@@ -30,22 +30,22 @@ describe Filterism::ConditionParser do
 
   describe "#add_comparator" do
     it "has the add_comparator method" do
-      expect(@condition_parser).to respond_to(:add_comparator).with(1).argument
+      expect(@params_parser).to respond_to(:add_comparator).with(1).argument
     end
 
     it "adds the new comparator to the comparators Hash" do
-      expect(@condition_parser.add_comparator({"equals_to" => "="})).to include("equals_to" => "=")
+      expect(@params_parser.add_comparator({"equals_to" => "="})).to include("equals_to" => "=")
     end
   end
 
   describe "#delete_comparator" do
     it "has the delete_comparator method" do
-      expect(@condition_parser).to respond_to(:delete_comparator).with(1).argument
+      expect(@params_parser).to respond_to(:delete_comparator).with(1).argument
     end
 
     it "deletes the comparator from the comparators Hash" do
-      @condition_parser.add_comparator({"equals_to" => "="})
-      expect(@condition_parser.delete_comparator("equals_to")).not_to include("equals_to")
+      @params_parser.add_comparator({"equals_to" => "="})
+      expect(@params_parser.delete_comparator("equals_to")).not_to include("equals_to")
     end
   end
 end

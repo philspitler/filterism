@@ -1,5 +1,5 @@
 module Filterism
-  class ConditionParser
+  class ParamsParser
     attr_accessor :comparators
     def initialize
       @comparators = {

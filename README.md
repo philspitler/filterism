@@ -1,6 +1,6 @@
 # Filterism
 
-A DSL for filtering items (usually in some form of record store).
+A DSL for filtering items (usually returned from some form of data store).
 
 ## Installation
 
@@ -11,7 +11,7 @@ gem 'filterism'
 gem install filterism
 
 ## Usage
-All examples use the ActiveRecordAdapter which is included with the gem.  Other adapters may be created to meet your needs.  These adapters generate the syntax to speak to whatever record store you need.
+All examples use the ActiveRecordAdapter which is included with the gem.  Other adapters may be created to meet your needs.  These adapters generate the syntax to speak to whatever data store you need.
 
 ### Globally
 Adds .filter, .filterable_fields and .unfilterable_fields methods to all of you models
